@@ -25,7 +25,10 @@ class DataExtractor:
 
         self.data = self.vec.fit_transform(self.data).toarray()
         self.data = np.unique(self.data, axis=0)
-
+        self.data[:, [10, -1]] = self.data[:, [-1, 10]]
+        self.data[:, [10, 11]] = self.data[:, [11, 10]]
+        self.data[:, [11, 12]] = self.data[:, [12, 11]]
+        self.data[:, [13, 12]] = self.data[:, [12, 13]]
         return self.data
 
 ##extr = DataExtractor()
