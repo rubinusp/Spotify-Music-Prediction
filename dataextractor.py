@@ -1,5 +1,6 @@
 import json
 import numpy as np
+from copy import deepcopy
 from sklearn.feature_extraction import DictVectorizer
 
 
@@ -30,6 +31,14 @@ class DataExtractor:
         self.data[:, [11, 12]] = self.data[:, [12, 11]]
         self.data[:, [13, 12]] = self.data[:, [12, 13]]
         return self.data
+
+    def normalize(self, X):
+        result = deepcopy(X)
+        for j in range(result.shape[1]):
+            xmax = np.amax(result[:, j])
+            xmin = np.amin(result[:, j])
+            result[:, j] = (result[:, j] - xmin) / (xmax - xmin)
+        return result
 
 ##extr = DataExtractor()
 #arr = extr.load_json().to_array()
