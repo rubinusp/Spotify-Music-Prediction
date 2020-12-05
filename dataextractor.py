@@ -14,7 +14,7 @@ class DataExtractor:
 
         :return: self
         """
-        f = open('dataset/Daniel/Andrew-spotify-data.json', 'r')
+        f = open('dataset/combinedData.json', 'r')
         self.data = json.load(f)
         f.close()
 
@@ -22,12 +22,11 @@ class DataExtractor:
 
     def to_array(self):
 
-        print(self.data)
+        #print(self.data)
         self.data = self.vec.fit_transform(self.data).toarray()
-        print(self.data)
+        #print(self.data)
 
         return self.data
 
-
-extr = DataExtractor()
-arr = extr.load_json().to_array()
+##extr = DataExtractor()
+#arr = extr.load_json().to_array()
