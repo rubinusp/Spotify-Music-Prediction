@@ -1,4 +1,5 @@
 import json
+import numpy as np
 from sklearn.feature_extraction import DictVectorizer
 
 
@@ -14,7 +15,7 @@ class DataExtractor:
 
         :return: self
         """
-        f = open('dataset/Daniel/Andrew-spotify-data.json', 'r')
+        f = open('dataset/combinedData.json', 'r')
         self.data = json.load(f)
         f.close()
 
@@ -22,9 +23,9 @@ class DataExtractor:
 
     def to_array(self):
 
-        print(self.data)
+        # print(self.data)
         self.data = self.vec.fit_transform(self.data).toarray()
-        print(self.data)
+        self.data = np.unique(self.data, axis=0)
 
         return self.data
 
