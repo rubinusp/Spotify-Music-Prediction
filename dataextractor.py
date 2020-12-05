@@ -23,15 +23,8 @@ class DataExtractor:
 
     def to_array(self):
 
-<<<<<<< HEAD
-        # print(self.data)
         self.data = self.vec.fit_transform(self.data).toarray()
         self.data = np.unique(self.data, axis=0)
-=======
-        #print(self.data)
-        self.data = self.vec.fit_transform(self.data).toarray()
-        #print(self.data)
->>>>>>> 52a22d05deedb879e1c180a96d02435ee1a27206
 
         return self.data
 
