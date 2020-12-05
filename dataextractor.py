@@ -14,11 +14,8 @@ class DataExtractor:
 
         :return: self
         """
-
-        f = open('./dataset/songs.json', )
-
-        self.data = json.load(f)
-
+        f = open('a.json', 'r')
+        self.data = json.loads(f)
         f.close()
 
         return self
