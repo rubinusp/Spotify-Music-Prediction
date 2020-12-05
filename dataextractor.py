@@ -14,8 +14,8 @@ class DataExtractor:
 
         :return: self
         """
-        f = open('a.json', 'r')
-        self.data = json.loads(f)
+        f = open('dataset/Daniel/Andrew-spotify-data.json', 'r')
+        self.data = json.load(f)
         f.close()
 
         return self
