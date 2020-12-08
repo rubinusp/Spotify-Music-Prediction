@@ -40,5 +40,19 @@ class DataExtractor:
             result[:, j] = (result[:, j] - xmin) / (xmax - xmin)
         return result
 
+    def catagorize(self, y, percentage):
+        length = len(y)
+        index_split = int(length * percentage)
+        for_finding_median = y.copy()
+        for_finding_median.sort()
+        split_val = for_finding_median[index_split]
+        print("Splitting values at " + str(split_val))
+        new = y.copy()
+        for i in range(len(y)):
+            if new[i] >= split_val:
+                new[i] = 1
+            else:
+                new[i] = 0
+        return new
 ##extr = DataExtractor()
 #arr = extr.load_json().to_array()
